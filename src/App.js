@@ -59,6 +59,7 @@ render(){
        <Route exact path='/'>
        <Container>
           <Row className="justify-content-md-center">
+            <h1>Cake App</h1>
             <Col lg="12">
               <SearchCake searchCake={this.searchCake}/>
             </Col>
