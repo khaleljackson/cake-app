@@ -36,8 +36,20 @@ searchCake=(search)=>{
   this.setState({cakes:[...this.state.cakes.filter(cake => cake.title === search)]})
 }
 
-editCake=(id,title,desc)=>{
-  
+editCake=(id,e)=>{
+  const index = this.state.cakes.findIndex((cake)=>{
+  return cake.id === id;
+});
+
+const cake = Object.assign({}, this.state.cakes[index]);
+
+cake.title=e.target.value;
+
+const cakes = Object.assign([], this.state.cakes);
+
+cakes[index] = cake;
+
+this.setState({cakes:cakes});
 }
 
 render(){

@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Button, Card, Col} from 'react-bootstrap';
+import { Button, Card, Col, Accordion} from 'react-bootstrap';
 
 export class ListItems extends Component {
+
     render() {
         const x="test";
         const y="desc test";
@@ -12,7 +13,18 @@ export class ListItems extends Component {
                     <Card.Title>{cake.title}</Card.Title>
                     <Card.Text>{cake.desc}</Card.Text>
                     <Button variant="danger" onClick={this.props.delCake.bind(this, cake.id)}>Delete</Button>
-                    <Button variant="warning" onClick={this.props.editCake.bind(this, cake.id, x, y)}>Edit</Button>
+                    <Accordion>
+                        <Accordion.Toggle as={Button} variant="link" eventKey="0">
+                            Edit me!
+                        </Accordion.Toggle>
+                        <Accordion.Collapse eventKey="0">
+                            <input
+                            name="title"
+                            onChange={this.props.editCake.bind(this, cake.id)}
+                            value={cake.title}
+                            />
+                        </Accordion.Collapse>
+                    </Accordion>
                 </Card>
             </Col>
         )
