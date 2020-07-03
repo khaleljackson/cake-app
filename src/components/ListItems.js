@@ -4,8 +4,6 @@ import { Button, Card, Col, Accordion} from 'react-bootstrap';
 export class ListItems extends Component {
 
     render() {
-        const x="test";
-        const y="desc test";
         return this.props.cakes.map((cake,id)=>
             <Col md={6} lg={4} sm>
                 <Card key={cake.id=id++} style={{ width: '18rem' }}>
